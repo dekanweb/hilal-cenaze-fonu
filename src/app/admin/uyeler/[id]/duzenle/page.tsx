@@ -7,6 +7,12 @@ import EditMemberForm from '@/components/EditMemberForm';
 // Bu sayfa sunucu tarafında çalışacak
 export const dynamic = 'force-dynamic';
 
+type PageProps = {
+  params: {
+    id: string;
+  };
+};
+
 async function getMember(id: string) {
   const { data, error } = await supabase
     .from('members')
@@ -22,8 +28,8 @@ async function getMember(id: string) {
   return data;
 }
 
-export default async function EditMemberPage({ params }: { params: { id: string } }) {
-  const id = params.id;
+export default async function EditMemberPage(props: PageProps) {
+  const id = props.params.id;
   const member = await getMember(id);
   
   if (!member) {
