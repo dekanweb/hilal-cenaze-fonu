@@ -1,4 +1,4 @@
-import Image from "next/image";
+// import Image from "next/image";
 import Link from "next/link";
 
 export default function Home() {
@@ -36,7 +36,7 @@ export default function Home() {
                   <h3 className="text-lg leading-6 font-medium text-gray-900">Üye Kayıt</h3>
                   <div className="mt-2 max-w-xl text-sm text-gray-500">
                     <p>
-                      Hilal Cenaze Fonu'na üye olmak için aşağıdaki butona tıklayarak kayıt formunu doldurabilirsiniz.
+                      Hilal Cenaze Fonu&apos;na üye olmak için aşağıdaki butona tıklayarak kayıt formunu doldurabilirsiniz.
                     </p>
                   </div>
                   <div className="mt-5">

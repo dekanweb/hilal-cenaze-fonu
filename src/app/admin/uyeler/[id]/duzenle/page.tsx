@@ -22,9 +22,10 @@ async function getMember(id: string) {
   return data;
 }
 
-export default async function EditMemberPage({ params }: { params: { id: string } }) {
-  const resolvedParams = use(Promise.resolve(params));
-  const member = await getMember(resolvedParams.id);
+export default function EditMemberPage({ params }: { params: { id: string } }) {
+  const id = params.id;
+  const memberPromise = getMember(id);
+  const member = use(memberPromise);
   
   if (!member) {
     notFound();

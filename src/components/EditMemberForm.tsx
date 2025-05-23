@@ -53,7 +53,6 @@ export default function EditMemberForm({ member }: EditMemberFormProps) {
   const {
     register,
     handleSubmit,
-    reset,
     formState: { errors }
   } = useForm<FormData>({
     resolver: zodResolver(memberSchema),
@@ -119,9 +118,10 @@ export default function EditMemberForm({ member }: EditMemberFormProps) {
         router.refresh();
       }, 2000);
       
-    } catch (error: any) {
+    } catch (error: unknown) {
+      const errorMessage = error instanceof Error ? error.message : 'Bilinmeyen bir hata oluştu';
       console.error('Form gönderme hatası:', error);
-      setSubmitError(error.message || 'Bir hata oluştu');
+      setSubmitError(errorMessage);
     } finally {
       setIsSubmitting(false);
     }

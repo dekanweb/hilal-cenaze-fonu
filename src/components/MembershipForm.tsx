@@ -92,9 +92,10 @@ export default function MembershipForm() {
       reset();
 
       
-    } catch (error: any) {
+    } catch (error: unknown) {
+      const errorMessage = error instanceof Error ? error.message : 'Bilinmeyen bir hata oluştu';
       console.error('Form gönderme hatası:', error);
-      setSubmitError(error.message || 'Bir hata oluştu');
+      setSubmitError(errorMessage);
       setSubmitSuccess(false);
     } finally {
       setIsSubmitting(false);
