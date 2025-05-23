@@ -1,4 +1,4 @@
-import React, { use } from 'react';
+import React from 'react';
 import { supabase } from '@/lib/supabase';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
@@ -22,10 +22,9 @@ async function getMember(id: string) {
   return data;
 }
 
-export default function EditMemberPage({ params }: { params: { id: string } }) {
+export default async function EditMemberPage({ params }: { params: { id: string } }) {
   const id = params.id;
-  const memberPromise = getMember(id);
-  const member = use(memberPromise);
+  const member = await getMember(id);
   
   if (!member) {
     notFound();
