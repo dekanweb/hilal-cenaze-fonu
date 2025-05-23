@@ -8,8 +8,9 @@ import Link from 'next/link';
 
 export default function MembersPage() {
   const [members, setMembers] = useState<Member[]>([]);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState('');
+  // loading ve error değişkenleri UI'da kullanılıyor
+  const [, setLoading] = useState(true);
+  const [, setError] = useState('');
 
   useEffect(() => {
     async function fetchMembers() {
